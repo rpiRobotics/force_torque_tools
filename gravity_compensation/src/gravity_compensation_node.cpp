@@ -261,7 +261,7 @@ public:
 		if((ros::Time::now()-m_imu.header.stamp).toSec() > 0.1)
 		{
 			error_msg_count++;
-			if(error_msg_count % 10==0)
+			if(error_msg_count % 100==0)
 				ROS_ERROR("Imu reading too old, not able to g-compensate ft measurement");
 			return;
 		}

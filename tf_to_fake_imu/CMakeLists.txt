@@ -31,7 +31,7 @@ include_directories(
 
 add_executable(${PROJECT_NAME}_node src/fake_imu_publisher.cpp)
 
-target_link_libraries(${PROJECT_NAME}__node
+target_link_libraries(${PROJECT_NAME}_node
   ${catkin_LIBRARIES}
   ${Boost_LIBRARIES}
 )

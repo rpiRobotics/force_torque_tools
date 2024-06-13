@@ -84,7 +84,9 @@ int main(int argc, char** argv)
             transform.getRotation().z()
         );
 
-        Eigen::Vector3d transformed_gravity = orientation * gravity_vector;
+        // orientation.inverse();
+
+        Eigen::Vector3d transformed_gravity = orientation.conjugate() * gravity_vector;
 
         sensor_msgs::Imu imu_msg;
         imu_msg.header.stamp = ros::Time::now();

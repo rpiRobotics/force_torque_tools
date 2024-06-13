@@ -29,14 +29,14 @@ include_directories(
   ${EIGEN3_INCLUDE_DIRS}
 )
 
-add_executable(${PROJECT_NAME}_node src/fake_imu_publisher.cpp)
+add_executable(fake_imu_publisher_node src/fake_imu_publisher.cpp)
 
-target_link_libraries(${PROJECT_NAME}_node
+target_link_libraries(fake_imu_publisher_node
   ${catkin_LIBRARIES}
   ${Boost_LIBRARIES}
 )
 
-install(TARGETS ${PROJECT_NAME}_node
+install(TARGETS fake_imu_publisher_node
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}

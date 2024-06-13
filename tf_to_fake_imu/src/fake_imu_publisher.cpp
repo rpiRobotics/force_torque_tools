@@ -98,9 +98,9 @@ int main(int argc, char** argv)
         imu_msg.angular_velocity.y = 0;
         imu_msg.angular_velocity.z = 0;
 
-        imu_msg.linear_acceleration.x = transformed_gravity.x();
-        imu_msg.linear_acceleration.y = transformed_gravity.y();
-        imu_msg.linear_acceleration.z = transformed_gravity.z();
+        imu_msg.linear_acceleration.x = -transformed_gravity.x(); // IMU will measure gravity in the opposite direction from F/T sensor, check https://github.com/kth-ros-pkg/force_torque_tools/pull/18
+        imu_msg.linear_acceleration.y = -transformed_gravity.y(); 
+        imu_msg.linear_acceleration.z = -transformed_gravity.z(); 
 
         imu_pub.publish(imu_msg);
         ros::spinOnce();

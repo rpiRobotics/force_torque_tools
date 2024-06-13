@@ -254,7 +254,8 @@ public:
 
 		if(!m_received_imu)
 		{
-			ROS_ERROR("No Imu reading");
+			// ROS_ERROR("No Imu reading");
+			ROS_ERROR_THROTTLE(2.0, "No Imu reading (throttled 2.0s)");
 			return;
 		}
 
@@ -262,7 +263,8 @@ public:
 		{
 			error_msg_count++;
 			if(error_msg_count % 100==0)
-				ROS_ERROR("Imu reading too old, not able to g-compensate ft measurement");
+				// ROS_ERROR("Imu reading too old, not able to g-compensate ft measurement");
+				ROS_ERROR_THROTTLE(2.0, "Imu reading too old, not able to g-compensate ft measurement (throttled 2.0s)");
 			return;
 		}
 

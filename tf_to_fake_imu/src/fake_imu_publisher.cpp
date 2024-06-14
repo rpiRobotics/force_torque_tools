@@ -71,7 +71,8 @@ int main(int argc, char** argv)
         try {
             listener.lookupTransform(tf_world_frame_id, tf_mobile_frame_id, ros::Time(0), transform);
         } catch (tf::TransformException &ex) {
-            ROS_ERROR("%s",ex.what());
+            // When outputting the error message, include the node name for clarity
+            ROS_ERROR("[%s] %s", ros::this_node::getName().c_str(), ex.what());
             ros::Duration(1.0).sleep();
             continue;
         }

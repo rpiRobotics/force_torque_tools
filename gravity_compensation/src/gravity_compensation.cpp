@@ -58,6 +58,10 @@ void GravityCompensation::Zero(const geometry_msgs::WrenchStamped &ft_raw,
     Eigen::Matrix<double, 6, 1> bias = m_g_comp_params->getBias();
 
     ft_zeroed = ft_raw;
+
+    // Assign the current ros time to the header stamp of the zeroed wrench
+    ft_zeroed.header.stamp = ros::Time::now();
+
     Eigen::Matrix<double, 6, 1> ft_raw_eigen;
     Eigen::Matrix<double, 6, 1> ft_zeroed_eigen;
     tf::wrenchMsgToEigen(ft_raw.wrench, ft_raw_eigen);
